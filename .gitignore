@@ -1,0 +1,12 @@
+# generated notebooks (publish.py), Python caches and build outputs
+.build/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+.pytest_cache/
+.DS_Store
+# generated reports (built from your catalog data)
+report/

@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "product-retrieval"
+version = "0.1.0"
+description = "Product retrieval strategies on Databricks AI Search, packaged as LangChain tool factories"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "databricks-ai-search>=0.75",
+    "databricks-langchain>=0.20.0",
+    "databricks-sdk>=0.105.0",
+    "langchain-core>=0.3",
+    "mlflow>=3.10",
+    "pydantic>=2.6",
+    # langchain-mcp-adapters 0.3.x (pulled in by databricks-langchain) imports mcp.shared.context.RequestContext, removed in mcp 2.0
+    "mcp<2",
+]
+
+[project.optional-dependencies]
+evaluation = ["pandas>=2.0", "numpy>=1.26"]
+ltr = ["lightgbm>=4.3", "pandas>=2.0", "numpy>=1.26"]
+dao-ai = ["dao-ai>=0.2.21"]
+dev = ["pytest>=8", "pandas>=2.0", "numpy>=1.26"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/product_retrieval"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
