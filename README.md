@@ -4,8 +4,8 @@ Interactive notebooks that measure how different retrieval methods change produc
 hardware catalog, with every run traced and scored in MLflow.
 
 **Data:** bring your own product catalog as `products.snappy.parquet` (columns `product_id`, `sku`, `upc`, `brand_name`,
-`product_name`, `merchandise_class`, `class_cd`, `description`) in `/Volumes/retail_consumer_goods/product_search/raw/`; no data
-or generated reports are included in this repo. Catalog, schema and column names are configurable (`00_config`, `CatalogSchema`).
+`product_name`, `merchandise_class`, `class_cd`, `description`) in `/Volumes/retail_consumer_goods/product_search/raw/`; no data is
+included. `report/` holds the results from the evaluation run (HTML deck + PDF). Catalog, schema and column names are configurable (`00_config`, `CatalogSchema`).
 
 | Notebook | What it does |
 |---|---|
@@ -21,7 +21,7 @@ or generated reports are included in this repo. Catalog, schema and column names
 | `09_improvements` | Fixes from the analysis: SKU/UPC routing, LLM-free exclusion filters, faster `noul` rerank, tail-latency diagnostic |
 | `10_enriched_index` | Second index embedding a compact `search_text` (title, brand, class, attributes, codes) instead of marketing copy |
 | `90_compare` | Leaderboard, per-type breakdown, paired-bootstrap significance, latency (p50/p90/p99) trade-off |
-| `91_report` | Self-contained HTML presentation with side-by-side examples (written to the UC volume; `make_pdf.sh` fetches it into `report/` and adds a PDF) |
+| `91_report` | Self-contained HTML presentation with side-by-side examples (`report/product_retrieval_report.html`; `make_pdf.sh` adds the PDF) |
 
 ## Running
 

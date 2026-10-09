@@ -8,5 +8,3 @@ build/
 .venv/
 .pytest_cache/
 .DS_Store
-# generated reports (built from your catalog data)
-report/
